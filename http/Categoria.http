@@ -2,7 +2,38 @@
 
 @baseURL = http://localhost:4001
 
+@id = 609d39cb25d96f07af99ba8e
+
 ###
 // GET - Lista as categorias
 GET {{baseURL}}/categorias
 Content-Type: application/json
+
+###
+// GET - Lista uma categoria pelo id
+GET {{baseURL}}/categorias/{{id}}
+Content-Type: application/json
+
+###
+// POST - Inclui uma nova categoria
+POST {{baseURL}}/categorias
+Content-Type: application/json
+
+{"nome": "Churrascaria", "status": "ativo"}
+
+###
+// DELETE - Apaga uma categoria
+DELETE {{baseURL}}/categorias/{{id}}
+Content-Type: application/json
+
+###
+// PUT - Alterar categoria
+PUT {{baseURL}}/categorias
+Content-Type: application/json
+
+{
+    "_id": "60a3dc22e0212d0304522204",
+    "nome": "Churrascaria",
+    "status": "ativo"
+
+}
