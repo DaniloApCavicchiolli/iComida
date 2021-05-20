@@ -3,11 +3,18 @@ require('dotenv').config() // Carrega as variáveis de ambiemte
 const InicializaMongoServer = require('./config/Db')
 //Definindo as rotas da aplicação
 const rotasCategoria = require('./routes/Categoria')
+const rotasRestaurante = require('./routes/Restaurante')
 
 //Inicializamos o servidro MongoDB
 InicializaMongoServer()
 
 const app = express() // app(objeto) que vai pegar no express(classe)
+
+//Removendo por segurança
+//para que outros não saibam se eu estou fazendo em .net, php ou express
+app.disable('x-powered-by')
+//toda vez que faço uma requisiçao, ele retorna a ferramenta que eu estou usando
+
 //Porta defaut
 const PORT = process.env.PORT
  //Vai em "process.env" e carrega a "PORT"
@@ -27,6 +34,9 @@ app.get('/', (req, res) => {
 
 /* Rotas da Categoria */
 app.use('/categorias', rotasCategoria)
+
+/* Rotas do Restaurante */
+app.use('/restaurantes', rotasRestaurante)
 
 
 app.listen(PORT, (req, res) => {

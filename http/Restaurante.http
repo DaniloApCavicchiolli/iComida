@@ -1,0 +1,93 @@
+// Teste de requisições - Categoria
+
+@baseURL = http://localhost:4001
+
+//@id = 609d39cb25d96f07af99ba8e
+@id = 60a6672a98b87f042391293c
+@idCategoria = 609d39cb25d96f07af99ba8d
+
+###
+// GET - Lista os restaurantes
+GET {{baseURL}}/restaurantes
+Content-Type: application/json
+
+###
+// GET - Lista um restaurante pelo id
+GET {{baseURL}}/restaurantes/{{id}}
+Content-Type: application/json
+
+###
+// GET - Lista um restaurante pelo id da categoria
+GET {{baseURL}}/restaurantes/categoria/{{idCategoria}}
+Content-Type: application/json
+
+###
+// POST - Inclui um novo restaurante
+POST {{baseURL}}/restaurantes
+Content-Type: application/json
+
+{"nome": "Restaurante 01", 
+"status": "ativo",
+"foto": {
+    "originalname": "fachada.png",
+    "path": "publics/uploads/fachada.png",
+    "size": 453180,
+    "mimetype": "image/png"
+    },
+"notaMedia": 4.7,
+"categoria": "609d39cb25d96f07af99ba8d",
+"faixaPreco": "barato",
+"tempoEntrega": "45 a 60min",
+"telefone": "(11)4013-1768",
+"endereco": {
+    "logradouro": "Praça da Independência, 224",
+    "bairro": "Centro",
+    "cep": "13300000",
+    "municipio": "Itu",
+    "estado": "SP",
+    "complemento": ""
+    },
+"geoLocalizacao": {
+    "latitude": -23.265370,
+    "longitude": -47.298160 
+    }
+}
+
+###
+// DELETE - Apaga um restaurante
+DELETE {{baseURL}}/restaurantes/{{id}}
+Content-Type: application/json
+
+###
+// PUT - Alterar restaurante
+PUT {{baseURL}}/restaurantes
+Content-Type: application/json
+
+{
+    "_id": "60a66d155247d50626e82fd7",
+    "nome": "Restaurante 01 alterado", 
+    "status": "ativo",
+    "foto": {
+        "originalname": "fachada.png",
+        "path": "publics/uploads/fachada.png",
+        "size": 453180,
+        "mimetype": "image/png"
+        },
+    "notaMedia": 4.7,
+    "categoria": "609d39cb25d96f07af99ba8d",
+    "faixaPreco": "barato",
+    "tempoEntrega": "45 a 60min",
+    "telefone": "(11)4013-1768",
+    "endereco": {
+        "logradouro": "Praça da Independência, 224",
+        "bairro": "Centro",
+        "cep": "13300000",
+        "municipio": "Itu",
+        "estado": "SP",
+        "complemento": ""
+        },
+    "geoLocalizacao": {
+        "latitude": -23.265370,
+        "longitude": -47.298160 
+        }
+}
