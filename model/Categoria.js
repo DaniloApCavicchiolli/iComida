@@ -11,6 +11,12 @@ const CategoriaSchema = mongoose.Schema({
         type: String,
         enum: ['ativo','inativo'],
         default: 'ativo'
+    },
+    foto: {
+        originalname: {type: String},//nome
+        path: {type: String},        //caminho
+        size: {type: Number},        //tamanho
+        mimetype: {type: String}     //tipo: pnj, jpeg...
     }
     //timestamps= vai controlar a data da inclusão(Criação) e a data da ultima alteração do registro
 }, {timestamps: true})

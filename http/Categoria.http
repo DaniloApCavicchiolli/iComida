@@ -7,7 +7,7 @@
 ###
 // GET - Lista as categorias
 GET {{baseURL}}/categorias
-Content-Type: application/json
+Content-Type: application/json 
 
 ###
 // GET - Lista uma categoria pelo id

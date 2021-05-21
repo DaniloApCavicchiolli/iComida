@@ -6,7 +6,7 @@ const Restaurante = require('../model/Restaurante')
 
 /************************************************** 
  * Lista todos os restaurante
- * GET /restaurante
+ * GET /restaurantes
 ***************************************************/
 //Códigos de erros:
 //200 - Quando deu tudo certo
@@ -29,7 +29,7 @@ router.get('/', async(req, res) => {
 
 /************************************************** 
  * Lista um restaurante pelo id
- * GET /restaurante/:id
+ * GET /restaurantes/:id
 ***************************************************/
 //(:) = Quando é colocado dois pontos, ele intende que é um parametro que eu vou receber
 // findById() = Localiza pelo id  
@@ -46,10 +46,10 @@ router.get('/:id', async(req, res) => {
 
 /************************************************** 
  * Lista um restaurante pelo id da categoria
- * GET /restaurante/categoria:id
+ * GET /restaurantes/categoria:id
 ***************************************************/
 //(:) = Quando é colocado dois pontos, ele intende que é um parametro que eu vou receber
-// findById() = Localiza pelo id  
+
 router.get('/categoria/:id', async(req, res) => {
     try {
         const restaurantes = await Restaurante //.find()= Filtrar a "categoria", estou recebendo via requisição(req) um parametro(params) chamado (id)
@@ -66,7 +66,7 @@ router.get('/categoria/:id', async(req, res) => {
 
 /************************************************** 
  * Inclui um novo restaurante
- * POST /restaurante
+ * POST /restaurantes
 ***************************************************/
 const validaRestaurante = [
     check('nome').not().isEmpty().withMessage('Nome do restaurante é obrigatório').isLength({ min: 5 })
